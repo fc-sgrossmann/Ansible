@@ -14,7 +14,7 @@
   
   tasks:
   - name: Ensure that mySql is installed
-    yum: name=mysql-server state = present
+    yum: name=mysql-server state=present
     
   - name: Start mySql
     service: name=mysqld enabled=true state=started
