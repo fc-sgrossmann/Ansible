@@ -1,0 +1,155 @@
+    1  apt-get ansible
+    2  apk-get ansible
+    3  sudo apt-get install ansible
+    4  exit
+    5  ansible
+    6  exit
+    7  mkdir excersise1
+    8  ip a
+    9  vi inventory
+   10  ansible 192.168.33.20 -i inventory  -u vagrant -m ping -k
+   11  exit
+   12  ls -lha
+   13  cd excersise1/
+   14  ls
+   15  ls -lha
+   16  vi inventory
+   17  cat inventory 
+   18  vi inventory
+   19  cat inventory 
+   20  ansible 192.168.33.20 -i inventory -u vagrant -m ping -k
+   21  ssh db
+   22  ssh 192.168.33.20
+   23  ssh 192.168.33.30
+   24  ansible 192.168.33.20 -i inventory -u vagrant -m ping -k
+   25  apt-get install sshpass
+   26  sudo apt-get install sshpass
+   27  ansible 192.168.33.20 -i inventory -u vagrant -m ping -k
+   28  cat ~/.ssh/known_hosts 
+   29  ansible 192.168.33.20 -i inventory -u vagrant -m ping -k
+   30  ansible -i inventory -u vagrant -m ping -k
+   31  ansible 192.168.33.30 -i inventory -u vagrant -m ping -k
+   32  ansible all -i inventory -u vagrant -m ping -k
+   33  atom
+   34  vim inventory 
+   35  ansible all -i inventory -u vagrant -m ping -k -vv
+   36  ansible all -i inventory -u vagrant -m ping -k -vvv
+   37  ansible all -i inventory -u vagrant -m date -k -vvv
+   38  ansible all -i inventory -u vagrant -m time -k -vvv
+   39  ansible all -i inventory -u vagrant -m command date -k -vvv
+   40  ansible all -i inventory -u vagrant -m command -a "date" -k -vvv
+   41  ansible all -i inventory -u vagrant -m command -a "yum update -y" -k -vvv
+   42  sudo apt-get install git
+   43  git init
+   44  git commit -m "first commit"
+   45  git config --global user.email "stefan.grossmann@fincon.eu"
+   46  git config --global user.name "sgrossmann"
+   47  git commit -m "first commit"
+   48  git remote add origin https://github.com/sgrossmann/Ansible.git
+   49  git push -u origin master
+   50  git commit -m "first commit"
+   51  git push -u origin master
+   52  git show-ref
+   53  git add
+   54  git add inventory 
+   55  git commit -m "inventory added"
+   56  git push -u origin master
+   57  git pull
+   58  ls -lha
+   59  cat inventory 
+   60  git pull
+   61  ansible all -i inventory -m command -a "date" -k -vvv
+   62  ansible all -i inventory -m command -a "date"
+   63  ansible all -i inventory -m ping
+   64  vboxmanage list runnigvms
+   65  ansible all -i inventory -m ping
+   66  git pull
+   67  ansible all -i inventory -m ping
+   68  ansible web1 -i inventory -m ping
+   69  git pull
+   70  ansible web1 -i inventory -m ping
+   71  ansible webservers -i inventory -m ping
+   72  ansible all -i inventory -m ping
+   73  git pull
+   74  ansible datacenter -i inventory -m ping
+   75  git pull
+   76  ansible datacenter -i inventory -m ping
+   77  tree
+   78  sudo apt-get install tree
+   79  tree
+   80  git pull
+   81  ls -lha
+   82  ansible webservers - i inventory_prod -m user -a "name={{username}} password=12345"
+   83  ansible webservers -i inventory_prod -m user -a "name={{username}} password=12345"
+   84  cd production/
+   85  ansible webservers -i inventory_prod -m user -a "name={{username}} password=12345"
+   86  ansible webservers -i inventory_prod -m user -a "name={{username}} password=12345" --sudo
+   87  git pull
+   88  ansible webservers -i inventory_prod -m user -a "name={{username}} password=12345" --sudo
+   89  git pull
+   90  ansible webservers -i inventory_prod -m user -a "name={{username}} password=12345" --sudo
+   91  tree
+   92  vi ~/.ssh/known_hosts 
+   93  ansible webservers -i inventory -m ping
+   94  ansible webservers -i inventory_prod -m ping
+   95  git pull
+   96  ansible webservers -i inventory_prod -m ping
+   97  ansible db1 -i inventory_prod -m ping
+   98  ansible all -i inventory_prod -m ping
+   99  cat ~/.ssh/known_hosts 
+  100  cat ansible.cfg 
+  101  export ANSIBLE_HOST_KEY_CHECKING=True
+  102  echo $ANSIBLE_HOST_KEY_CHECKING
+  103  ansible all -i inventory_prod -m ping
+  104  vi ~/.ssh/known_hosts 
+  105  ansible all -i inventory_prod -m ping
+  106  cat ~/.ssh/known_hosts 
+  107  python
+  108  history | grep yum
+  109  ansible all -i inventory_prod -u vagrant -m command -a "yum update -y" --sudo
+  110  ansible all -i inventory_prod -m command -a "yum update -y" --sudo
+  111  ansible all -i inventory_prod -m ping
+  112  history | grep true
+  113  history | grep "true"
+  114  history | grep "True"
+  115  export ANSIBLE_HOST_KEY_CHECKING=False
+  116  ansible all -i inventory_prod -m ping
+  117  ansible all -i inventory_prod -m command -a "yum update -y" --sudo
+  118  ansible webservers -i inventory_prod  -m yum -a "name=httpd state = present" --sudo
+  119  ansible webservers -i inventory_prod  -m yum -a "name=httpd state=present" --sudo
+  120  ansible webservers -i inventory_prod  -m servce -a "name=httpd enabled=true" --sudo
+  121  ansible webservers -i inventory_prod  -m service -a "name=httpd enabled=true" --sudo
+  122  ansible webservers -i inventory_prod  -m service -a "name=httpd enabled=true state=started" --sudo
+  123  cat inventory_prod 
+  124  curl web1
+  125  curl 192.168.33.20
+  126  ip a
+  127  cat inventory_prod 
+  128  curl http://192.168.33.20:80
+  129  ansible dbservers -i inventory_prod  -m yum -a "name=mysql state=present" --sudo
+  130  ansible dbservers -i inventory_prod  -m yum -a "name=mysql enabled=true state=started" --sudo
+  131  ansible dbservers -i inventory_prod  -m yum -a "name=mysql state=started" --sudo
+  132  ansible dbservers -i inventory_prod  -m service -a "name=mysql enabled=true state=started" --sudo
+  133  ansible dbservers -i inventory_prod  -m yum -a "name=mysql-server state=present" --sudo
+  134  ansible dbservers -i inventory_prod  -m service -a "name=mysql-server state=started" --sudo
+  135  ansible dbservers -i inventory_prod  -m service -a "name=mysql-server status=started" --sudo
+  136  ansible-doc service
+  137  ansible dbservers -i inventory_prod  -m service -a "name=mysql-server enabled=true state=started" --sudo
+  138  ansible dbservers -i inventory_prod  -m service -a "name=mysqld enabled=true state=started" --sudo
+  139  cat inventory_prod 
+  140  ansible webservers:dbservers -i inventory_prod  -m service -a "name=iptables state=stopped" --sudo
+  141  ansible webservers -i inventory_prod 
+  142  ansible webservers -i inventory_prod -m setup
+  143  ansible webservers -i inventory_prod -m setup -a "filter=ansible_eth*"
+  144  ansible webservers -i inventory_prod -m setup -a "filter=ansible_mounts*"
+  145  ansible all -m setup --tree ./setup
+  146  ansible all -i inventory_prod -m setup --tree ./setup
+  147  ls
+  148  git checkout
+  149  git add setup
+  150  git commit 'setup'
+  151  git commit setup
+  152  git commit "setup"
+  153  git commit -m "setup hibzugefügt"
+  154  git push
+  155  history > ./setup/history.txt
