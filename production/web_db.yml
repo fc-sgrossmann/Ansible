@@ -7,7 +7,7 @@
     yum: name=httpd state=present
     
   - name: Start Apache Services
-    service: name=httpd enalbed=yes state=started
+    service: name=httpd enabled=true state=started
     
 - hosts: dbservers
   sudo: yes
@@ -17,7 +17,7 @@
     yum: name=mysql-server state = present
     
   - name: Start mySql
-    service: name=mysqld state=started
+    service: name=mysqld enabled=true state=started
     
 - hosts: webservers:dbservers
   sudo: yes
